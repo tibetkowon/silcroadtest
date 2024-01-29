@@ -1,0 +1,11 @@
+server:
+  port: 8080
+
+logging:
+  pattern:
+    level: info
+
+jwt:
+  secret: 1qaz2wsx3EDC4RFV5tgb6yhn7ujm8IK9ol0P
+  expiration: 1
+  refresh-expiration: 30
