@@ -1,5 +1,6 @@
 package com.example.demo.controller;
 
+import com.example.demo.common.CommonResponse;
 import com.example.demo.controller.dto.InsertUserDto;
 import com.example.demo.controller.dto.LoginDto;
 import com.example.demo.controller.dto.TokenDto;
@@ -24,7 +25,7 @@ public class UserController {
     }
 
     @PostMapping("/sign-in")
-    public void loginUser(
+    public CommonResponse loginUser(
             @RequestBody LoginDto dto,
             HttpServletResponse response) {
         TokenDto token = service.login(dto);
@@ -39,5 +40,7 @@ public class UserController {
 
         response.addCookie(authToken);
         response.addCookie(refreshToken);
+
+        return CommonResponse.success();
     }
 }

@@ -28,6 +28,10 @@ public class ResponseWrapper implements ResponseBodyAdvice<Object> {
             return body;
         }
 
+        if (returnType.getParameterType().equals(void.class)) {
+            return CommonResponse.success();
+        }
+
         return CommonResponse.success(body);
     }
 }
